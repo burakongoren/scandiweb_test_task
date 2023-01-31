@@ -71,6 +71,7 @@ class Database
                 color: rgb(224,79,79);
                 text-decoration: none;
                 z-index: 1;
+                transition: 1;
             }
             .header a:hover{
                 font-size: 25px;
@@ -119,12 +120,14 @@ class Database
             #add_button {
                 background-color: #4CAF50;
                 color: white;
+                height: 40px;
+                width: 80px;
                 margin: 7px 0px;
                 border: none;
                 border-radius: 4px;
                 cursor: pointer;
                 position: absolute;
-                right: 230px;
+                right: 210px;
                 top: 10px;
                 z-index: 1;
                 transition: 0.3s;
@@ -133,6 +136,7 @@ class Database
             #delete-product-btn{
                 background-color: #DC0000;
                 color: white;
+                height: 40px;
                 margin: 7px 10px;
                 transition: 0.3s;
                 border: none;
