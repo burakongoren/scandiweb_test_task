@@ -1,8 +1,7 @@
 <?php
 require 'connection.php';
 
-class Product
-{
+class Product{
     protected $sku;
     protected $name;
     protected $price;
@@ -68,7 +67,6 @@ mysqli_close($conn);
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300&family=Poppins&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="add_product_style.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script >
             function showForm() {
@@ -276,27 +274,5 @@ mysqli_close($conn);
         </form>
         
     </body>
-    <footer>
-        <div class="container text-center">
-            <div class="row align-items-center">
-                <div class="col">
-                    <a href="">Terms of Service</a>
-                    <a href="">Privacy Policy</a>
-                    <a href="">Manage Cookies</a>
-                </div>
-                <div class="col">
-                    <a href="https://github.com/">G</a>
-                    <a href="https://www.instagram.com/">In</a>
-                    <a href="https://www.facebook.com/">F</a>
-                    <a href="https://www.youtube.com/">Y</a>
-                </div>
-                <div class="col">
-                    <p>© 2023 scandiweb. All Rights Reserved.</p>
-                </div>
-            </div>
-        </div>
-               
-    </footer>
-
 
 </html>
