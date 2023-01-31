@@ -97,9 +97,7 @@ class Database
                 display: inline-block;
                 position: relative;
                 border-radius: 15px;
-                cursor: pointer;
             }
-
 
             .card:hover {
                 box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5);
@@ -153,6 +151,7 @@ class Database
                 transition: 0.3s;
             }
             .delete-checkbox{
+                cursor: pointer;
                 height: 20px;
                 width: 20px;
                 margin-top: 20px;
@@ -206,7 +205,7 @@ class Database
                                         '<ul class="list-group">'.
                                             '<li class="list-group-item">SKU: '.$this->sku.
                                             '</li><li>Name: '.$this->name.
-                                            '</li><li>Price (€): '.$this->price.
+                                            '</li><li>Price: '.$this->price.' €'.
                                             '</li><li>Type: '.$this->type.
                                             $this->displayAttribute().
                                         '</li></ul>'.

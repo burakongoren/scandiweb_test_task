@@ -27,9 +27,10 @@ class Product
         global $conn;
         $sql = "INSERT INTO products VALUES('$this->sku', '$this->name', '$this->price', '$this->type', '$this->size', '$this->dimensions', '$this->weight')";
         if ($conn->query($sql) === TRUE) {
-            echo "<script> alert('Data Inserted Successfully'); </script>";
+            header("Location: show_products.php");
+            
         } else {
-            echo "Error " . $sql . "<br>" . $conn->error;
+            echo "<script> alert('Please enter a different sku. The sku you entered has been used before'); </script>";
         }
     }
 }
@@ -54,7 +55,6 @@ if (isset($_POST["add"])) {
     }
     $product = new Product($sku, $name, $price, $type, $size, $dimensions, $weight);
     $product->addProduct();
-    header("Location: show_products.php");
 }
 mysqli_close($conn);
 ?>
@@ -68,6 +68,7 @@ mysqli_close($conn);
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300&family=Poppins&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="add_product_style.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script >
             function showForm() {
@@ -111,14 +112,17 @@ mysqli_close($conn);
                     }
                 });
             });
-
-        
-
+           
 
         </script>
         <title>Adding Product</title>
         <style>
+            *{
+                margin: 0;
+                
+            }
             body {
+                margin: 0;
                 font-family: 'Poppins', sans-serif;
                 display: flex;
                 flex-wrap: wrap;
@@ -145,6 +149,7 @@ mysqli_close($conn);
                 color: rgb(224,79,79);
                 text-decoration: none;
                 transition: 0.3s;
+                z-index: 1;
             }
             .header a:hover{
                 font-size: 25px;
@@ -168,7 +173,8 @@ mysqli_close($conn);
                 align-items: center;
                 padding: 20px;
                 background-color: rgba(76,175,80, 0.25);
-                margin-top: 15px;
+                margin-top: 65px;
+                margin-bottom: 50px;
             }
             #product_form:hover{
                 box-shadow: 0 6px 9px 0 rgba(0, 0, 0, 0.5);
@@ -208,6 +214,18 @@ mysqli_close($conn);
                 font-weight: bold;
                 font-size: smaller;
             }
+            footer {
+                height: 50px;
+                background-color: #333;
+                color: #fff;
+                font-size: 15px;
+                bottom: 0;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            
+            
         </style>
     </head>
     <body>
@@ -249,7 +267,7 @@ mysqli_close($conn);
             <label class="description" id="type_label33" for="size" style="display: none;"></label>
             <br>
         <div class="buttons">
-            <button type="add" value="add" name="add">Save</button>
+            <button id="add" type="add" value="add" name="add">Save</button>
             <button type="button" id="cancel" onclick="window.location.href='show_products.php'">Cancel</button>
         </div>
         
@@ -258,5 +276,27 @@ mysqli_close($conn);
         </form>
         
     </body>
+    <footer>
+        <div class="container text-center">
+            <div class="row align-items-center">
+                <div class="col">
+                    <a href="">Terms of Service</a>
+                    <a href="">Privacy Policy</a>
+                    <a href="">Manage Cookies</a>
+                </div>
+                <div class="col">
+                    <a href="https://github.com/">G</a>
+                    <a href="https://www.instagram.com/">In</a>
+                    <a href="https://www.facebook.com/">F</a>
+                    <a href="https://www.youtube.com/">Y</a>
+                </div>
+                <div class="col">
+                    <p>© 2023 scandiweb. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+               
+    </footer>
+
 
 </html>
