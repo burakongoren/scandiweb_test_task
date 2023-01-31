@@ -1,15 +1,29 @@
 <?php
-$conn = mysqli_connect("localhost", "root", "", "scandiweb");
+class Product
+{
+    private $conn;
 
-if (isset($_POST['delete'])) {
-    $selected = $_POST['selected'];
+    public function __construct($host, $user, $password, $db)
+    {
+        $this->conn = new mysqli($host, $user, $password, $db);
+    }
 
-    foreach ($selected as $sku) {
-        $sql = "DELETE FROM products WHERE sku='".$sku."'";
-        $result = mysqli_query($conn, $sql);
+    public function delete($selected)
+    {
+        foreach ($selected as $sku) {
+            $sql = "DELETE FROM products WHERE sku='".$sku."'";
+            $result = $this->conn->query($sql);
+        }
+
+        $this->conn->close();
     }
 }
 
-mysqli_close($conn);
-header("Location: show_products.php");
+if (isset($_POST['delete'])) {
+    $product = new Product("localhost", "root", "", "scandiweb");
+    $selected = $_POST['selected'];
+    $product->delete($selected);
+}
+
+header("Location: index.php");
 ?>
