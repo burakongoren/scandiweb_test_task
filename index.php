@@ -12,7 +12,7 @@ class Database
         $this->servername = "localhost";
         $this->username = "root";
         $this->password = "";
-        $this->dbname = "scandiweb";
+        $this->dbname = "db_db";
     }
 
     public function connect()
@@ -43,7 +43,7 @@ class Database
     </head>
     <body>
         <div class="header">
-            <a href="https://scandiweb.com/">scandiweb</a>
+            <a href="#">Logo</a>
         </div>
         <div class="head">
             <h2>Product List</h2>
